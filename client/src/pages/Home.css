@@ -1,0 +1,2 @@
+/* Home page — sections are self-contained; this file handles page-level overrides */
+main { overflow-x: hidden; }

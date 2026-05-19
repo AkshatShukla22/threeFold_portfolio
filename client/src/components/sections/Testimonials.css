@@ -1,0 +1,37 @@
+.t-sec{background:var(--bg-2)}
+.t-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}
+.t-card{
+  background:var(--bg-card);border:1px solid var(--border-2);
+  border-radius:var(--r-lg);padding:28px;
+  position:relative;overflow:hidden;transition:var(--ease);
+}
+.t-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad)}
+.t-card:hover{border-color:var(--border);transform:translateY(-3px);box-shadow:var(--shadow)}
+.t-quote{font-size:1.5rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:0.5;margin-bottom:12px}
+.t-stars{display:flex;gap:3px;margin-bottom:12px}
+.t-stars i{color:#fbbf24;font-size:0.8rem}
+.t-msg{font-size:0.875rem;color:var(--text-2);line-height:1.75;font-style:italic;margin-bottom:20px}
+.t-author{display:flex;align-items:center;gap:12px}
+.t-avatar{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid var(--primary);flex-shrink:0}
+.t-avatar-ph{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  background:var(--grad);display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-h);font-size:1.1rem;font-weight:700;color:#fff;
+}
+.t-name{display:block;font-size:0.875rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.t-role{font-size:0.75rem;color:var(--text-3)}
+.t-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:28px}
+.t-nav-btn{
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,0.04);border:1px solid var(--border-2);
+  color:var(--text-2);cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:0.85rem;transition:var(--ease);
+}
+.t-nav-btn:hover{background:rgba(59,130,246,0.12);border-color:var(--primary);color:var(--primary)}
+.t-dots{display:flex;gap:6px}
+.t-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--border);
+  border:none;cursor:pointer;transition:var(--ease);padding:0;
+}
+.t-dot.active{width:22px;border-radius:4px;background:var(--grad)}
+@media(max-width:640px){.t-grid{grid-template-columns:1fr}}

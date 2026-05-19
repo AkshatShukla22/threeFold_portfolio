@@ -1,0 +1,10 @@
+import API from './axios';
+export const fetchHero         = ()      => API.get('/hero');
+export const fetchSettings     = ()      => API.get('/settings');
+export const fetchServices     = ()      => API.get('/services');
+export const fetchProjects     = (p)     => API.get('/projects', { params: p });
+export const fetchProject      = (id)    => API.get(`/projects/${id}`);
+export const fetchTestimonials = ()      => API.get('/testimonials');
+export const fetchFAQs         = ()      => API.get('/faqs');
+export const fetchTeam         = ()      => API.get('/team');
+export const submitContact     = (data)  => API.post('/contact', data);

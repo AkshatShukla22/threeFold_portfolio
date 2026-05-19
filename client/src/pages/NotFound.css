@@ -1,0 +1,9 @@
+.nf-page { min-height:100vh; display:flex; align-items:center; justify-content:center; background:var(--bg); position:relative; overflow:hidden; text-align:center; }
+.nf-orb { position:absolute; width:600px; height:600px; border-radius:50%; background:rgba(59,130,246,0.08); filter:blur(100px); top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; }
+.nf-content { position:relative; z-index:2; }
+.nf-inner { max-width:500px; margin:0 auto; }
+.nf-code { font-family:var(--font-h); font-size:8rem; font-weight:800; line-height:1; background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; opacity:0.18; margin-bottom:-20px; }
+.nf-icon { font-size:2.8rem; color:var(--primary); margin-bottom:18px; display:block; }
+.nf-title { font-family:var(--font-h); font-size:2.2rem; font-weight:700; color:var(--text); margin-bottom:14px; }
+.nf-desc { font-size:1rem; color:var(--text-2); line-height:1.75; margin-bottom:32px; }
+.nf-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }

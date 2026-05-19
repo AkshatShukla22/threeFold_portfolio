@@ -1,0 +1,90 @@
+.workflow-sec { background: var(--bg); }
+
+.workflow-track {
+  position: relative;
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Animated vertical connector line - stops at last node center */
+.wf-line-track {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 48px;      /* center of first node */
+  bottom: 48px;   /* center of last node — line won't extend past it */
+  width: 2px;
+  background: rgba(59,130,246,0.1);
+  z-index: 0;
+}
+.wf-line-fill {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  background: linear-gradient(180deg, #3B82F6 0%, #A855F7 100%);
+  border-radius: 2px;
+  width: 100%;
+}
+
+/* Step row */
+.wf-step {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 56px 1fr;
+  align-items: center;
+  min-height: 96px;
+}
+
+/* Card positions */
+.wf-left .wf-card  { grid-column: 1; text-align: right; padding-right: 28px; }
+.wf-left .wf-node  { grid-column: 2; }
+.wf-right .wf-card { grid-column: 3; text-align: left; padding-left: 28px; }
+.wf-right .wf-node { grid-column: 2; }
+
+/* Node circle */
+.wf-node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 2;
+  z-index: 2;
+}
+.wf-node-inner {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3B82F6, #A855F7);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; color: #fff;
+  box-shadow: 0 0 20px rgba(59,130,246,0.35);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
+}
+
+/* Card content */
+.wf-card { padding: 18px 0; }
+.wf-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.68rem; font-weight: 700;
+  color: #3B82F6; letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block; margin-bottom: 4px;
+}
+.wf-title { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 600; color: #F8FAFC; margin-bottom: 5px; }
+.wf-desc  { font-size: 0.8rem; color: #64748B; line-height: 1.65; }
+
+@media(max-width:700px) {
+  .wf-line-track {
+    left: 20px;
+    top: 48px;
+    bottom: 48px;
+  }
+  .wf-step { grid-template-columns: 40px 1fr; }
+  .wf-left .wf-card, .wf-right .wf-card {
+    grid-column: 2; text-align: left;
+    padding-left: 20px; padding-right: 0;
+  }
+  .wf-left .wf-node, .wf-right .wf-node { grid-column: 1; }
+}

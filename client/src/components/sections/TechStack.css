@@ -1,0 +1,159 @@
+/* ═══════════════════════════════════════════════════════
+   TechStack — full-viewport 3D carousel
+═══════════════════════════════════════════════════════ */
+
+.tech-sec {
+  background: var(--bg);
+  padding: 80px 0 52px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ── Centred heading ───────────────────────────────────── */
+.tech-heading-wrap {
+  text-align: center;
+  margin-bottom: 52px;
+  padding: 0 24px;
+}
+
+.tech-heading-wrap .section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent, #6366f1);
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  padding: 6px 18px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.tech-heading-wrap .section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--text-1, #f0f0f5);
+  line-height: 1.15;
+}
+
+.tech-heading-wrap .section-title span {
+  background: var(--grad, linear-gradient(135deg, #6366f1, #a855f7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Carousel ring — spans full viewport ───────────────── */
+.tech-carousel {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  overflow: hidden;
+}
+
+.tech-carousel:active { cursor: grabbing; }
+
+/* Soft fade masks at edges */
+.tech-carousel::before,
+.tech-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 160px;
+  z-index: 200;
+  pointer-events: none;
+}
+.tech-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg, #0c0c14) 0%, transparent 100%);
+}
+.tech-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg, #0c0c14) 0%, transparent 100%);
+}
+
+/* ── Individual item ───────────────────────────────────── */
+.tech-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 86px;
+  margin-left: -43px;
+  margin-top: -68px;
+  background: transparent;
+  border: none;
+  cursor: default;
+  pointer-events: auto;
+  will-change: transform, opacity;
+}
+
+/* Devicon — grayscale by default, override colored class */
+.tech-item i {
+  font-size: 3rem;
+  line-height: 1;
+  /* Force grayscale — neutralise devicon's built-in colours */
+  filter: grayscale(1) brightness(0.55);
+  transition: filter 0.28s ease, transform 0.28s ease;
+}
+
+/* On hover: restore full devicon brand colours */
+.tech-item:hover i {
+  filter: grayscale(0) brightness(1);
+  transform: translateY(-8px) scale(1.2);
+}
+
+.tech-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(180, 180, 205, 0.3);
+  text-align: center;
+  white-space: nowrap;
+  transition: color 0.28s ease;
+  line-height: 1;
+}
+
+.tech-item:hover .tech-label {
+  color: rgba(230, 230, 245, 0.9);
+}
+
+/* ── Drag hint ─────────────────────────────────────────── */
+.tech-hint {
+  text-align: center;
+  font-size: 10.5px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(140, 140, 165, 0.32);
+  margin-top: 18px;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .tech-carousel { height: 220px; }
+  .tech-item { width: 72px; margin-left: -36px; margin-top: -60px; }
+  .tech-item i { font-size: 2.4rem; }
+  .tech-carousel::before,
+  .tech-carousel::after { width: 80px; }
+}
+
+@media (max-width: 480px) {
+  .tech-carousel { height: 190px; }
+  .tech-item { width: 62px; margin-left: -31px; margin-top: -52px; }
+  .tech-item i { font-size: 2rem; }
+  .tech-label { font-size: 9px; }
+  .tech-carousel::before,
+  .tech-carousel::after { width: 48px; }
+}

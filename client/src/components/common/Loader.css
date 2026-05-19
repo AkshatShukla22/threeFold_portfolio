@@ -1,0 +1,11 @@
+.loader { display:flex; align-items:center; justify-content:center; padding:56px; }
+.loader-full { position:fixed; inset:0; background:var(--bg); z-index:9000; padding:0; }
+.loader-ring { position:relative; width:48px; height:48px; }
+.loader-ring div {
+  box-sizing:border-box; position:absolute; width:44px; height:44px; margin:2px;
+  border:3px solid transparent; border-radius:50%; animation:lspin 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
+}
+.loader-ring div:nth-child(1) { border-top-color:var(--primary); animation-delay:-0.45s; }
+.loader-ring div:nth-child(2) { border-top-color:var(--accent);  animation-delay:-0.3s; }
+.loader-ring div:nth-child(3) { border-top-color:var(--primary-lt); animation-delay:-0.15s; }
+@keyframes lspin { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }

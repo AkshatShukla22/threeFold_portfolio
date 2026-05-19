@@ -1,0 +1,23 @@
+.hero-editor { display: flex; flex-direction: column; gap: 20px; }
+
+.editor-section-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.editor-section-title i { color: var(--color-primary); font-size: 0.85rem; }
+
+.stats-editor { display: flex; flex-direction: column; gap: 12px; }
+
+.stat-editor-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.stat-remove { flex-shrink: 0; align-self: flex-end; }

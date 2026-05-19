@@ -1,0 +1,55 @@
+.faq-admin-list { display: flex; flex-direction: column; gap: 8px; }
+
+.faq-admin-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.faq-admin-item:hover { border-color: var(--border-color); }
+
+.faq-admin-num {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.4;
+  flex-shrink: 0;
+  width: 32px;
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.faq-admin-content { flex: 1; min-width: 0; }
+
+.faq-admin-q {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.faq-admin-a {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.faq-admin-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
