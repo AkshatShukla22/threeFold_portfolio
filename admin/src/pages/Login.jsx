@@ -1,13 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../api/auth.api';
 import { loginSuccess } from '../redux/slices/authSlice';
+import { useSelector } from 'react-redux';
 import './Login.css';
 
 const Login = () => {
   const dispatch  = useDispatch();
   const navigate  = useNavigate();
+  const { isAuthenticated } = useSelector(s => s.auth);
+
+  // Already logged in → go to dashboard
+  useEffect(() => {
+    if (isAuthenticated) navigate('/', { replace: true });
+  }, [isAuthenticated, navigate]);
   const [form, setForm]     = useState({ email: '', password: '' });
   const [error, setError]   = useState('');
   const [loading, setLoading] = useState(false);
